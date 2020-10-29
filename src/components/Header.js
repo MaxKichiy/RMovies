@@ -10,13 +10,13 @@ function Header() {
       </h1>
       <ul className='header__nav nav'>
         <li className='nav__item'>
-          <a href=''>Contacts</a>
+          <a href='/'>Contacts</a>
         </li>
         <li className='nav__item'>
-          <a href=''>News</a>
+          <a href='/'>News</a>
         </li>
         <li className='nav__item'>
-          <a href=''>About</a>
+          <a href='/'>About</a>
         </li>
       </ul>
     </header>

@@ -1,11 +1,19 @@
-import React from 'react';
+import React, { useRef } from 'react';
 
-function SearchForm() {
+function SearchForm({ setSearchFile }) {
+  // console.log(inputRef && inputRef.current.value);
+  // console.log(searchFile);
+
+  const handler = () => {
+    setSearchFile(inputRef.current.value);
+  };
+  const inputRef = useRef();
+
   return (
-    <form className='main__form'>
-      <input type='text' placeholder='Search for a movie...' />
-      <button type='button'>Search</button>
-    </form>
+    <div className='main__form'>
+      <input ref={inputRef} type='text' placeholder='Search for a movie...' />
+      <button onClick={handler}>Search</button>
+    </div>
   );
 }
 

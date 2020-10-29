@@ -5,9 +5,15 @@ import Main from './components/Main';
 
 function App() {
   const [movieList, setMovieList] = useState([]);
-  const [favorite, setFavorite] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(false);
+  // const [favorite, setFavorite] = useState([]);
+  // const [loading, setLoading] = useState(false);
+  // const [error, setError] = useState(false);
+
+  const [searchFile, setSearchFile] = useState('');
+
+  // const searchHandler = (string) => {
+  //   setSearchFile(string);
+  // };
 
   useEffect(() => {
     // setLoading(true);
@@ -20,7 +26,11 @@ function App() {
     <div className='app'>
       <div className='app__wrapper'>
         <Header />
-        <Main movieList={movieList} />
+        <Main
+          movieList={movieList}
+          setSearchFile={setSearchFile}
+          toSearchString={searchFile}
+        />
       </div>
     </div>
   );

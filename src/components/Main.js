@@ -2,12 +2,12 @@ import React from 'react';
 import MoviesList from './MoviesList';
 import SearchForm from './SearchForm';
 
-function Main({ movieList }) {
+function Main({ movieList, setSearchFile, toSearchString }) {
   return (
     <section className='main'>
       <div className='main__wrapper'>
-        <SearchForm />
-        <MoviesList movieList={movieList} />
+        <SearchForm setSearchFile={setSearchFile} />
+        <MoviesList movieList={movieList} toSearchString={toSearchString} />
       </div>
     </section>
   );

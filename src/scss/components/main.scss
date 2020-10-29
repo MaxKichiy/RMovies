@@ -16,9 +16,13 @@
     padding: 10px;
     margin-right: 10px;
     background: none;
-    background-image: radial-gradient(73% 147%, #eadfdf 59%, #ece2df 100%),
+    background-image: radial-gradient(
+        closest-side at 73% 147%,
+        #eadfdf 59%,
+        #ece2df 100%
+      ),
       radial-gradient(
-        91% 146%,
+        closest-side at 91% 146%,
         rgba(255, 255, 255, 0.5) 47%,
         rgba(0, 0, 0, 0.5) 100%
       );
@@ -113,10 +117,6 @@
     }
   }
   input:checked + label {
-    &::before {
-      background-image: url(../../assets/bi_suit-heart.svg);
-    }
-
     &::after {
       content: '';
       position: absolute;
