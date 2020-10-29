@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Header() {
+function Header({ favoriteAmount }) {
   return (
     <header className='header'>
       <h1 className='header__title'>
@@ -10,13 +10,13 @@ function Header() {
       </h1>
       <ul className='header__nav nav'>
         <li className='nav__item'>
-          <a href='/'>Contacts</a>
+          <a href='https://github.com/MaxKichiy?tab=repositories'>Contacts</a>
         </li>
         <li className='nav__item'>
-          <a href='/'>News</a>
+          <a href='https://github.com/MaxKichiy/RMovies'>GitHub</a>
         </li>
         <li className='nav__item'>
-          <a href='/'>About</a>
+          <a href='/'>{`Bookmarks(${favoriteAmount})`}</a>
         </li>
       </ul>
     </header>

@@ -6,8 +6,8 @@ import Main from './components/Main';
 function App() {
   const [movieList, setMovieList] = useState([]);
   const [favorite, setFavorite] = useState([]);
-  // const [loading, setLoading] = useState(false);
-  // const [error, setError] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
 
   const [searchFile, setSearchFile] = useState('');
 
@@ -24,25 +24,31 @@ function App() {
   };
 
   useEffect(() => {
+    let fullList = JSON.parse(localStorage.getItem('fullList') || '[]');
     let saved = JSON.parse(localStorage.getItem('favorite') || '[]');
     setFavorite(saved);
+    setMovieList(fullList);
   }, []);
 
   useEffect(() => {
     localStorage.setItem('favorite', JSON.stringify(favorite));
-  }, [favorite]);
+    localStorage.setItem('fullList', JSON.stringify(movieList));
+  }, [favorite, movieList]);
 
+  console.log('App -> movieList', movieList);
   useEffect(() => {
-    // setLoading(true);
-    // setError(false);
-    axios
-      .get('https://rmovies-c3416.firebaseio.com/data.json')
-      .then((res) => setMovieList(res.data));
+    setLoading(true);
+    setError(false);
+    if (movieList.length < 1) {
+      axios
+        .get('https://rmovies-c3416.firebaseio.com/data.json')
+        .then((res) => setMovieList(res.data));
+    }
   }, []);
   return (
     <div className='app'>
       <div className='app__wrapper'>
-        <Header />
+        <Header favoriteAmount={favorite.length} />
         <Main
           movieList={movieList}
           setSearchFile={setSearchFile}
