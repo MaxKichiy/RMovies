@@ -5,8 +5,10 @@ import SearchForm from './SearchForm';
 function Main() {
   return (
     <section className='main'>
-      <SearchForm />
-      <MoviesList />
+      <div className='main__wrapper'>
+        <SearchForm />
+        <MoviesList />
+      </div>
     </section>
   );
 }

@@ -1,0 +1,125 @@
+.main {
+  margin-top: 50px;
+}
+
+.main__wrapper {
+  width: 500px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+.main__form {
+  width: 100%;
+  display: flex;
+  input {
+    flex-grow: 1;
+    padding: 10px;
+    margin-right: 10px;
+    background: none;
+    background-image: radial-gradient(73% 147%, #eadfdf 59%, #ece2df 100%),
+      radial-gradient(
+        91% 146%,
+        rgba(255, 255, 255, 0.5) 47%,
+        rgba(0, 0, 0, 0.5) 100%
+      );
+    background-blend-mode: screen;
+    border: 1px solid #666;
+    &::placeholder {
+      font-family: 'Roboto';
+      font-size: 15px;
+      line-height: 15px;
+      vertical-align: middle;
+    }
+    &[type='text'] {
+      font-size: 15px;
+      font-family: 'Roboto';
+    }
+    &:hover,
+    &:focus {
+      opacity: 0.8;
+    }
+  }
+  button {
+    padding: 0;
+    margin: 0;
+    width: 100px;
+    padding: 10px;
+    background-color: transparent;
+    border: 1px solid #666;
+    cursor: pointer;
+    &:hover,
+    &:active {
+      opacity: 0.7;
+    }
+  }
+}
+
+.main__list {
+  margin-top: 50px;
+  width: 100%;
+}
+
+.movie {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.movie__image {
+  flex-shrink: 1;
+  width: 100px;
+  height: 100px;
+  border: 1px solid #000;
+}
+
+.movie__text {
+  width: 350px;
+}
+.movie__title {
+  padding: 0;
+  margin: 0;
+}
+.movie__description {
+  display: block;
+  padding: 0;
+  margin: 0;
+  height: 60px;
+  overflow: hidden;
+  // white-space: wrap;
+  // text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.movie__like {
+  position: relative;
+  input {
+    display: none;
+  }
+  input + label {
+    cursor: pointer;
+    &::before {
+      content: '';
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      background-image: url(../../assets/bi_suit-heart.svg);
+    }
+  }
+  input:checked + label {
+    &::before {
+      background-image: url(../../assets/bi_suit-heart.svg);
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      background-image: url(../../assets/bi_suit-heart-fill.svg);
+    }
+  }
+}
