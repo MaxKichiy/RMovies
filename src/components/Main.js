@@ -8,6 +8,7 @@ function Main({
   setSearchFile,
   toSearchString,
   handleBookmark,
+  loading,
 }) {
   return (
     <section className='main'>
@@ -18,6 +19,7 @@ function Main({
           toSearchString={toSearchString}
           favorite={favorite}
           handleBookmark={handleBookmark}
+          loading={loading}
         />
       </div>
     </section>

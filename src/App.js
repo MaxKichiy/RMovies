@@ -6,14 +6,9 @@ import Main from './components/Main';
 function App() {
   const [movieList, setMovieList] = useState([]);
   const [favorite, setFavorite] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(false);
+  const [loading, setLoading] = useState();
 
   const [searchFile, setSearchFile] = useState('');
-
-  // const searchHandler = (string) => {
-  //   setSearchFile(string);
-  // };
 
   const handleBookmark = (id) => {
     if (favorite.includes(id)) {
@@ -38,23 +33,25 @@ function App() {
   console.log('App -> movieList', movieList);
   useEffect(() => {
     setLoading(true);
-    setError(false);
-    if (movieList.length < 1) {
-      axios
-        .get('https://rmovies-c3416.firebaseio.com/data.json')
-        .then((res) => setMovieList(res.data));
-    }
+    axios.get('https://rmovies-c3416.firebaseio.com/data.json').then((res) => {
+      setMovieList(res.data);
+      setLoading(false);
+    });
   }, []);
   return (
     <div className='app'>
       <div className='app__wrapper'>
-        <Header favoriteAmount={favorite.length} />
+        <Header
+          favoriteAmount={favorite.length}
+          setSearchFile={setSearchFile}
+        />
         <Main
           movieList={movieList}
           setSearchFile={setSearchFile}
           toSearchString={searchFile}
           favorite={favorite}
           handleBookmark={handleBookmark}
+          loading={loading}
         />
       </div>
     </div>

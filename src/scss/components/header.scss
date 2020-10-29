@@ -1,14 +1,22 @@
 .header {
   display: flex;
+  position: fixed;
+  top: 0;
+  width: 700px;
   justify-content: space-between;
   align-items: center;
   background-image: linear-gradient(90deg, #8baaaa 0%, #ae8b9c 100%);
   height: 50px;
+  z-index: 2;
+  & > div {
+    width: 290px;
+  }
 }
 .header__title {
   padding: 0;
   margin: 0;
   margin-left: 10px;
+  padding-right: 10px;
   a {
     text-decoration: none;
     color: black;
@@ -21,10 +29,26 @@
   }
 }
 .header__nav {
+  width: 255px;
+  padding: 0;
+  margin: 0;
+  padding-left: 10px;
   list-style: none;
   display: flex;
 }
+@keyframes shake {
+  0% {
+    transform: translateY(-10px);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
 .nav__item {
+  flex-grow: 1;
   margin-right: 10px;
   a {
     text-decoration: none;
@@ -32,5 +56,23 @@
     &:hover {
       opacity: 0.5;
     }
+  }
+  span {
+    display: inline-block;
+    animation: shake 0.1s;
+  }
+}
+
+@keyframes popUp {
+  0% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+.header {
+  div {
+    animation: popUp 0.1s;
   }
 }

@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 
-function SearchForm({ setSearchFile }) {
+function SearchForm({ setSearchFile, headerClass }) {
   // console.log(inputRef && inputRef.current.value);
   // console.log(searchFile);
 

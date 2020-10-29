@@ -1,8 +1,49 @@
 import React from 'react';
 import MovieItem from './MovieItem';
+import Skeleton from '@material-ui/lab/Skeleton';
 
-function MoviesList({ movieList, toSearchString, handleBookmark, favorite }) {
+function MoviesList({
+  movieList,
+  toSearchString,
+  handleBookmark,
+  favorite,
+  loading,
+}) {
   //making simple objects removing all the unused information
+  let newList = Array(10).fill('');
+  let newArr = [];
+  for (let item in newList) {
+    newArr.push(
+      <div style={{ display: 'flex', flexWrap: 'wrap', position: 'relative' }}>
+        <Skeleton
+          variant='rect'
+          width={102}
+          height={102}
+          style={{ marginRight: '10px', marginTop: '10px' }}
+        />
+        <Skeleton
+          variant='text'
+          width='150px'
+          height='20px'
+          style={{ marginTop: '20px' }}
+        />
+        <Skeleton
+          variant='text'
+          width='300px'
+          height='60px'
+          style={{
+            marginTop: '20px',
+            position: 'absolute',
+            left: '110px',
+            top: '30px',
+          }}
+        />
+      </div>
+    );
+  }
+
+  console.log('newArr', newArr);
+
   let allMovies = movieList
     .filter((el) => {
       if (el) {
@@ -48,7 +89,11 @@ function MoviesList({ movieList, toSearchString, handleBookmark, favorite }) {
     );
   }
 
-  return <section className='main__list movie__list'>{filteredList}</section>;
+  return (
+    <section className='main__list movie__list'>
+      {loading ? newArr : filteredList}
+    </section>
+  );
 }
 
 export default MoviesList;

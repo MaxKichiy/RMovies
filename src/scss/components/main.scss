@@ -1,5 +1,6 @@
 .main {
   margin-top: 50px;
+  padding-top: 50px;
 }
 
 .main__wrapper {
@@ -12,6 +13,7 @@
   width: 100%;
   display: flex;
   input {
+    z-index: 1;
     flex-grow: 1;
     padding: 10px;
     margin-right: 10px;
