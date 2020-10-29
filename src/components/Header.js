@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import SearchForm from './SearchForm';
 
-function Header({ favoriteAmount, setSearchFile }) {
+function Header({ favoriteAmount, setSearchFile, loading }) {
   const [offSet, setOffSet] = useState(0);
 
   const handleScroll = () => {
@@ -31,7 +31,9 @@ function Header({ favoriteAmount, setSearchFile }) {
         <li className='nav__item'>
           <a href='/'>
             Bookmarks
-            <span>{favoriteAmount > 0 ? `(${favoriteAmount})` : null}</span>
+            <span>
+              {favoriteAmount > 0 && !loading ? `(${favoriteAmount})` : null}
+            </span>
           </a>
         </li>
       </ul>

@@ -44,6 +44,7 @@ function App() {
         <Header
           favoriteAmount={favorite.length}
           setSearchFile={setSearchFile}
+          loading={loading}
         />
         <Main
           movieList={movieList}
