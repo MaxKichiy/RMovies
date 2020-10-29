@@ -5,7 +5,7 @@ import Main from './components/Main';
 
 function App() {
   const [movieList, setMovieList] = useState([]);
-  // const [favorite, setFavorite] = useState([]);
+  const [favorite, setFavorite] = useState([]);
   // const [loading, setLoading] = useState(false);
   // const [error, setError] = useState(false);
 
@@ -14,6 +14,23 @@ function App() {
   // const searchHandler = (string) => {
   //   setSearchFile(string);
   // };
+
+  const handleBookmark = (id) => {
+    if (favorite.includes(id)) {
+      setFavorite((favorite) => favorite.filter((el) => el !== id));
+    } else {
+      setFavorite((favorite) => [...favorite, id]);
+    }
+  };
+
+  useEffect(() => {
+    let saved = JSON.parse(localStorage.getItem('favorite') || '[]');
+    setFavorite(saved);
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('favorite', JSON.stringify(favorite));
+  }, [favorite]);
 
   useEffect(() => {
     // setLoading(true);
@@ -30,6 +47,8 @@ function App() {
           movieList={movieList}
           setSearchFile={setSearchFile}
           toSearchString={searchFile}
+          favorite={favorite}
+          handleBookmark={handleBookmark}
         />
       </div>
     </div>

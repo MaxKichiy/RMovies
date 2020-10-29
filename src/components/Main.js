@@ -2,12 +2,23 @@ import React from 'react';
 import MoviesList from './MoviesList';
 import SearchForm from './SearchForm';
 
-function Main({ movieList, setSearchFile, toSearchString }) {
+function Main({
+  favorite,
+  movieList,
+  setSearchFile,
+  toSearchString,
+  handleBookmark,
+}) {
   return (
     <section className='main'>
       <div className='main__wrapper'>
         <SearchForm setSearchFile={setSearchFile} />
-        <MoviesList movieList={movieList} toSearchString={toSearchString} />
+        <MoviesList
+          movieList={movieList}
+          toSearchString={toSearchString}
+          favorite={favorite}
+          handleBookmark={handleBookmark}
+        />
       </div>
     </section>
   );
