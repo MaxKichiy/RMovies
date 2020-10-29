@@ -51,11 +51,14 @@
     width: 100px;
     padding: 10px;
     background-color: transparent;
+    // background-color: blue;
     border: 1px solid #666;
     cursor: pointer;
     &:hover,
     &:active {
       opacity: 0.7;
+      background-color: rgb(146, 163, 167);
+      transition: all 0.3s;
     }
   }
 }
