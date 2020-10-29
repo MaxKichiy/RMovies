@@ -1,11 +1,13 @@
 import React from 'react';
 
-function MovieItem() {
+function MovieItem({ imgUrl, title, id }) {
   return (
     <div className='main__item movie'>
-      <div className='movie__image'>asd</div>
+      <div className='movie__image'>
+        <img src={imgUrl} alt={title} />
+      </div>
       <div className='movie__text'>
-        <h2 className='movie__title'>Joker</h2>
+        <h2 className='movie__title'>{title}</h2>
         <p className='movie__description'>
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi
           magni odio praesentium illo, nesciunt beatae officia delectus laborum
@@ -14,8 +16,8 @@ function MovieItem() {
         </p>
       </div>
       <span className='movie__like'>
-        <input id='favorite' type='checkbox' />
-        <label htmlFor='favorite'></label>
+        <input id={id} type='checkbox' />
+        <label htmlFor={id}></label>
       </span>
     </div>
   );

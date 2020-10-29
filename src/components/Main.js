@@ -2,12 +2,12 @@ import React from 'react';
 import MoviesList from './MoviesList';
 import SearchForm from './SearchForm';
 
-function Main() {
+function Main({ movieList }) {
   return (
     <section className='main'>
       <div className='main__wrapper'>
         <SearchForm />
-        <MoviesList />
+        <MoviesList movieList={movieList} />
       </div>
     </section>
   );

@@ -2,6 +2,9 @@
 @import './components/header';
 @import './components/main';
 
+* {
+  margin: 0;
+}
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Roboto', 'Segoe UI', 'Roboto',
@@ -26,7 +29,7 @@ code {
 
 .app__wrapper {
   width: 700px;
-  height: 100vh;
+  height: 100%;
   background-image: linear-gradient(45deg, #8baaaa 0%, #ae8b9c 100%);
   margin: 0 auto;
 }
