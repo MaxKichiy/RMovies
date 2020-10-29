@@ -1,6 +1,6 @@
 import React from 'react';
 
-function MovieItem({ imgUrl, title, id }) {
+function MovieItem({ imgUrl, title, id, bookmark }) {
   return (
     <div className='main__item movie'>
       <div className='movie__image'>
@@ -16,7 +16,7 @@ function MovieItem({ imgUrl, title, id }) {
         </p>
       </div>
       <span className='movie__like'>
-        <input id={id} type='checkbox' />
+        <input id={id} type='checkbox' defaultChecked={bookmark} />
         <label htmlFor={id}></label>
       </span>
     </div>

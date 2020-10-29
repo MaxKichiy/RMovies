@@ -19,13 +19,23 @@ function MoviesList({ movieList, toSearchString }) {
 
   let newFil = editedList.map((el, index) => {
     return (
-      <MovieItem key={el.id} id={el.id} imgUrl={el.imgUrl} title={el.title} />
+      <MovieItem
+        key={el.id}
+        id={el.id}
+        imgUrl={el.imgUrl}
+        title={el.title}
+        bookmark={el.bookmark}
+      />
     );
   });
   if (toSearchString) {
     newFil = newFil.filter(
       (el) =>
-        el.props.title && el.props.title.toString().includes(toSearchString)
+        el.props.title &&
+        el.props.title
+          .toString()
+          .toLowerCase()
+          .includes(toSearchString.toLowerCase())
     );
   }
 
